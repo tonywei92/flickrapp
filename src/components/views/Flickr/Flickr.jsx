@@ -37,9 +37,12 @@ const Flickr = (props) => {
 };
 
 Flickr.propTypes = {
-  flickr: PropTypes.objectOf({
+  flickr: PropTypes.shape({
     clearError: PropTypes.func,
     refreshFeeds: PropTypes.func,
+    feeds: PropTypes.arrayOf(PropTypes.object.isRequired),
+    feedsLoading: PropTypes.bool,
+    error: PropTypes.instanceOf(Error),
   }).isRequired,
 };
 export default Flickr;

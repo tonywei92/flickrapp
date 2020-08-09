@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 // import swiper for carousel
@@ -38,8 +38,12 @@ const FlickrCarousel = React.memo((props) => {
   }
   const [controlledSwiper, setControlledSwiper] = useState({});
   const [activeSlide, setActiveSlide] = useState(1);
-
   const classes = useStyles();
+
+  // reset active slide to 1 if receive new feeds
+  useEffect(() => {
+    setActiveSlide(1);
+  }, [feeds]);
 
   const onPaginationChange = (e, page) => {
     controlledSwiper.slideTo(page - 1);

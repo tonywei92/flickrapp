@@ -34,13 +34,13 @@ Alert.propTypes = {
 
 const Home = () => {
   const flickr = useFlickr();
+  const { refreshFeeds, feedsLoading } = flickr;
   const { tags, setTags } = flickr;
   const [tagsInput, setTagsInput] = useState('');
   const [showAbout, setShowAbout] = useState(false);
   const [openVisitNotif, setOpenVisitNotif] = React.useState(true);
 
   // initialize Flickr hooks
-  const { refreshFeeds } = flickr;
   const handleVisitNotifClose = (event, reason) => {
     if (reason === 'clickaway') {
       return;
@@ -73,7 +73,7 @@ const Home = () => {
   }, [refreshFeeds]);
 
   const handleRefreshFlickrFeeds = () => {
-    refreshFeeds(tags);
+    if (!feedsLoading) refreshFeeds(tags);
   };
 
   // define Appbar buttons

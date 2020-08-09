@@ -1,9 +1,10 @@
 import axios from 'axios';
-const queryString = require('query-string');
-const { REACT_APP_FLICK_PUBLIC_FEED_URL } = process.env;
+import queryString from 'query-string';
+
+const { REACT_APP_FLICKR_PUBLIC_FEED_URL } = process.env;
 
 const getPublicFeed = (tags) => {
-  const url = `${REACT_APP_FLICK_PUBLIC_FEED_URL}?${queryString.stringify({
+  const url = `${REACT_APP_FLICKR_PUBLIC_FEED_URL}?${queryString.stringify({
     tags,
   })}`;
 

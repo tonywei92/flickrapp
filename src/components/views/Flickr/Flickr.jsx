@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ErrorBoundary from 'components/UI/ErrorBoundary';
 import ErrorIcon from '@material-ui/icons/Error';
 import Button from '@material-ui/core/Button';
@@ -36,6 +37,9 @@ const Flickr = (props) => {
 };
 
 Flickr.propTypes = {
-  flickr: propTypes,
+  flickr: PropTypes.objectOf({
+    clearError: PropTypes.func,
+    refreshFeeds: PropTypes.func,
+  }).isRequired,
 };
 export default Flickr;

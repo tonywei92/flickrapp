@@ -85,11 +85,13 @@ const FlickrCarousel = React.memo((props) => {
 
 FlickrCarousel.defaultProps = {
   feeds: [],
+  error: {},
 };
 
 FlickrCarousel.propTypes = {
   feeds: PropTypes.arrayOf(PropTypes.object.isRequired),
   loading: PropTypes.bool.isRequired,
+  error: PropTypes.instanceOf(Error),
 };
 
 export default FlickrCarousel;

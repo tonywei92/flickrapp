@@ -3,7 +3,7 @@ module.exports = {
     browser: true,
     es6: true,
   },
-  extends: ['prettier', 'plugin:react/recommended', 'airbnb'],
+  extends: ['airbnb', 'plugin:prettier/recommended'],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -15,19 +15,17 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  plugins: ['react', 'prettier'],
+  plugins: ['prettier'],
   rules: {
-    'trailing-comma': [
-      true,
+    'react/jsx-filename-extension': [
+      1,
       {
-        singleline: 'never',
-        multiline: {
-          objects: 'always',
-          arrays: 'always',
-          functions: 'never',
-          typeLiterals: 'ignore',
-        },
+        extensions: ['.js', '.jsx'],
       },
+    ],
+    'react/jsx-wrap-multilines': [
+      'error',
+      { declaration: false, assignment: false },
     ],
   },
   settings: {

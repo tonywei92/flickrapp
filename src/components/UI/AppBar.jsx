@@ -1,13 +1,14 @@
-import React, { useState } from "react";
-import { fade, makeStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import InputBase from "@material-ui/core/InputBase";
-import IconButton from "@material-ui/core/IconButton";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import MenuIcon from "@material-ui/icons/Menu";
-import SearchIcon from "@material-ui/icons/Search";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { fade, makeStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import InputBase from '@material-ui/core/InputBase';
+import IconButton from '@material-ui/core/IconButton';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import MenuIcon from '@material-ui/icons/Menu';
+import SearchIcon from '@material-ui/icons/Search';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,38 +21,38 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   search: {
-    position: "relative",
+    position: 'relative',
     borderRadius: theme.shape.borderRadius,
     backgroundColor: fade(theme.palette.common.white, 0.15),
-    "&:hover": {
+    '&:hover': {
       backgroundColor: fade(theme.palette.common.white, 0.25),
     },
     marginLeft: 0,
-    width: "100%",
-    [theme.breakpoints.up("sm")]: {
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
       marginLeft: theme.spacing(1),
-      width: "auto",
+      width: 'auto',
     },
   },
   searchIcon: {
-    color: "inherit",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
+    color: 'inherit',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   inputRoot: {
-    color: "inherit",
+    color: 'inherit',
   },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
-    paddingLeft: "20px",
-    transition: theme.transitions.create("width"),
-    width: "100%",
-    [theme.breakpoints.up("sm")]: {
-      width: "12ch",
-      "&:focus": {
-        width: "20ch",
+    paddingLeft: '20px',
+    transition: theme.transitions.create('width'),
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      width: '12ch',
+      '&:focus': {
+        width: '20ch',
       },
     },
   },
@@ -60,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
 const Navbar = (props) => {
   const {
     title,
-    buttons = [],
+    buttons,
     searchInputValue,
     onSearchInputChanged,
     onSearchSubmit,
@@ -119,7 +120,7 @@ const Navbar = (props) => {
                 }}
                 value={searchInputValue}
                 onChange={onSearchInputChanged}
-                inputProps={{ "aria-label": "search" }}
+                inputProps={{ 'aria-label': 'search' }}
                 endAdornment={
                   <InputAdornment position="end">
                     <IconButton
@@ -150,6 +151,23 @@ const Navbar = (props) => {
       </AppBar>
     </div>
   );
+};
+
+Navbar.defaultProps = {
+  buttons: [],
+  searchInputValue: '',
+  onSearchInputChanged: () => {},
+  onSearchSubmit: () => {},
+  onMenuClick: () => {},
+};
+
+Navbar.propTypes = {
+  title: PropTypes.string.isRequired,
+  buttons: PropTypes.arrayOf(PropTypes.node),
+  searchInputValue: PropTypes.string,
+  onSearchInputChanged: PropTypes.func,
+  onSearchSubmit: PropTypes.func,
+  onMenuClick: PropTypes.func,
 };
 
 export default Navbar;

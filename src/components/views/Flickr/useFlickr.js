@@ -22,7 +22,15 @@ const useFlickr = () => {
     }
   }, [tags]);
 
-  return { feeds, tags, setTags, feedsLoading, refreshFeeds, error, clearError };
+  return {
+    feeds,
+    tags,
+    setTags,
+    feedsLoading,
+    refreshFeeds,
+    error,
+    clearError,
+  };
 };
 
 export default useFlickr;

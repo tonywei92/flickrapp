@@ -1,10 +1,15 @@
 module.exports = {
   env: {
+    'cypress/globals': true,
     browser: true,
     es6: true,
     jest: true,
   },
-  extends: ['airbnb', 'plugin:prettier/recommended'],
+  extends: [
+    'airbnb',
+    'plugin:prettier/recommended',
+    'plugin:cypress/recommended',
+  ],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -16,7 +21,7 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  plugins: ['prettier'],
+  plugins: ['cypress', 'prettier'],
   rules: {
     'react/jsx-filename-extension': [
       1,

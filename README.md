@@ -6,6 +6,8 @@ View you Flickr Feeds faster with optimized web app based on [React](https://rea
     <img src="/other/screenshot.png" width="400px"</img> 
 </div>
 
+Visit web app here: [https://tonywei92.github.io/flickrapp/](https://tonywei92.github.io/flickrapp/)
+
 ## Key Features ❤
 
 - Responsive, enjoy app at any screen size 📱
@@ -14,19 +16,35 @@ View you Flickr Feeds faster with optimized web app based on [React](https://rea
 
 ## Development and testing
 
+Backend server: [https://github.com/tonywei92/flickrapp-server](https://github.com/tonywei92/flickrapp-server)
+
 Running in development environtment
 
 ```bash
 $ yarn start
 ```
 
-### building
+### Custom Hooks
+
+FlickrApp use self-made `useFlickr` that exposes states and functions:
+
+| Name         | Type         | Description                                                                                                |
+| ------------ | ------------ | ---------------------------------------------------------------------------------------------------------- |
+| feeds        | Array        | An array of FlickrFeeds                                                                                    |
+| tags         | String       | Store tags string                                                                                          |
+| setTags      | Function     | Set tags                                                                                                   |
+| feedsLoading | Boolean      | Indicate feeds is still fetching                                                                           |
+| refreshFeeds | Function     | Fetch Flickr feeds with tags argument, if failed, it will not throw an error directly, use "error" instead |
+| error        | Error object | Indicate error is occured, default is null                                                                 |
+| clearError   | Function     | Clear error, this will be automatically invoked on refreshFeeds calls                                      |
+
+### Building
 
 ```bash
 $ yarn build
 ```
 
-### testing
+### Testing
 
 There are two type of tests implemented, snapshot and integration.
 

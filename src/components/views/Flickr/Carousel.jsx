@@ -7,12 +7,22 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 // import material-ui component
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Pagination from '@material-ui/lab/Pagination';
+import { makeStyles } from '@material-ui/core/styles';
 
 // import internal component
 import CenterContainer from 'components/UI/CenterContainer';
 import SingleFeed from './SingleFeed';
 
 import 'swiper/swiper.scss';
+
+const useStyles = makeStyles((theme) => ({
+  media: {
+    width: '90%',
+    [theme.breakpoints.up('md')]: {
+      width: '50%',
+    },
+  },
+}));
 
 const compareChanges = (prevProps, nextProps) =>
   !(
@@ -28,6 +38,9 @@ const FlickrCarousel = React.memo((props) => {
   }
   const [controlledSwiper, setControlledSwiper] = useState({});
   const [activeSlide, setActiveSlide] = useState(1);
+
+  const classes = useStyles();
+
   const onPaginationChange = (e, page) => {
     controlledSwiper.slideTo(page - 1);
   };
@@ -48,13 +61,14 @@ const FlickrCarousel = React.memo((props) => {
         onSwiper={setControlledSwiper}
       >
         {feeds.map((feed) => (
-          <SwiperSlide key={feed.id} style={{ width: '80%' }}>
+          <SwiperSlide key={feed.id} className={classes.media}>
             <SingleFeed feed={feed} />
           </SwiperSlide>
         ))}
       </Swiper>
     );
   }, [feeds]);
+
   if (feeds.length && loading === false) {
     return (
       <>

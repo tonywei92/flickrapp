@@ -13,20 +13,23 @@ const useFlickr = () => {
 
   // recreate refreshFeeds function only
   // if tags is changed
-  const refreshFeeds = useCallback(async () => {
-    setFeedsLoading(true);
-    try {
-      const feedsRes = await FlickrService.getPublicFeed(tags);
-      setFeeds(feedsRes);
-      setFeedsLoading(false);
-    } catch (err) {
-      // purpose of the set error state below
-      // is to throw an error inside the Flickr
-      // component. so the error handled inside
-      // component instead of here
-      setError(err);
-    }
-  }, [tags]);
+  const refreshFeeds = useCallback(
+    async (tagsArgs) => {
+      setFeedsLoading(true);
+      try {
+        const feedsRes = await FlickrService.getPublicFeed(tagsArgs || tags);
+        setFeeds(feedsRes);
+        setFeedsLoading(false);
+      } catch (err) {
+        // purpose of the set error state below
+        // is to throw an error inside the Flickr
+        // component. so the error handled inside
+        // component instead of here
+        setError(err);
+      }
+    },
+    [tags]
+  );
 
   return {
     feeds,

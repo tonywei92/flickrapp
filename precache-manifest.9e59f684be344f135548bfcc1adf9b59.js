@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0c478489c17f7edde9fa2f10deee136f",
+    "revision": "9f493bedf7a52b25f26d83b261426954",
     "url": "/flickrapp/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/flickrapp/static/css/2.a1063ac4.chunk.css"
   },
   {
-    "revision": "25cb4869a0feef99bd15",
+    "revision": "ccccb4b8620fe8713831",
     "url": "/flickrapp/static/css/main.b72d524d.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/flickrapp/static/js/2.4c8af5e9.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "25cb4869a0feef99bd15",
-    "url": "/flickrapp/static/js/main.f0e6f819.chunk.js"
+    "revision": "ccccb4b8620fe8713831",
+    "url": "/flickrapp/static/js/main.86f2e757.chunk.js"
   },
   {
     "revision": "c99b74985a9e79238832",

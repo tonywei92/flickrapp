@@ -124,7 +124,7 @@ const Navbar = (props) => {
                 endAdornment={
                   <InputAdornment position="end">
                     <IconButton
-                      aria-label="toggle password visibility"
+                      aria-label="search"
                       className={classes.searchIcon}
                       onClick={onSearchSubmit}
                     >
@@ -138,7 +138,7 @@ const Navbar = (props) => {
 
           {!searchOpen && (
             <IconButton
-              aria-label="toggle password visibility"
+              aria-label="search"
               className={classes.searchIcon}
               color="inherit"
               onClick={() => openSearch(true)}

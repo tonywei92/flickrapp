@@ -67,7 +67,7 @@ const FlickrCarousel = React.memo((props) => {
         ))}
       </Swiper>
     );
-  }, [feeds]);
+  }, [feeds, classes.media]);
 
   if (feeds.length && loading === false) {
     return (

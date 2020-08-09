@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { fade, makeStyles } from '@material-ui/core/styles';
+import { fade, makeStyles, useTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -9,6 +9,7 @@ import IconButton from '@material-ui/core/IconButton';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -68,6 +69,8 @@ const Navbar = (props) => {
     onMenuClick,
   } = props;
   const classes = useStyles();
+  const theme = useTheme();
+  const isScreenWidthMd = useMediaQuery(theme.breakpoints.up('md'));
 
   // search input box open state is decided
   // by searchInputValue
@@ -105,7 +108,7 @@ const Navbar = (props) => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            {!searchOpen && title}
+            {(!searchOpen || isScreenWidthMd) && title}
           </Typography>
           {searchOpen && (
             <div className={classes.search}>

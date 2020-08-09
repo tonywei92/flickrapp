@@ -12,6 +12,7 @@ import Link from '@material-ui/core/Link';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 
 const { REACT_APP_FLICKR_IMAGE_ERROR_FALLBACK } = process.env;
 
@@ -100,7 +101,8 @@ const SingleFeedsView = forwardRef((props, ref) => {
           Share
         </Button> */}
         <Button size="small" color="primary" href={flickr_link} target="blank">
-          Open in Flickr
+          Open in Flickr&nbsp;
+          <OpenInNewIcon />
         </Button>
       </CardActions>
     </Card>

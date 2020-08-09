@@ -69,7 +69,7 @@ const Navbar = (props) => {
   } = props;
   const classes = useStyles();
 
-  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(!!searchInputValue);
   const openSearch = (open) => {
     if (!open) {
       if (!searchInputValue.trim()) {

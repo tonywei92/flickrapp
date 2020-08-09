@@ -96,9 +96,9 @@ const SingleFeedsView = forwardRef((props, ref) => {
       </CardActionArea>
 
       <CardActions>
-        <Button size="small" color="primary">
+        {/* <Button size="small" color="primary">
           Share
-        </Button>
+        </Button> */}
         <Button size="small" color="primary" href={flickr_link} target="blank">
           Open in Flickr
         </Button>

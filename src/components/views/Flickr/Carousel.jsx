@@ -31,6 +31,9 @@ const FlickrCarousel = React.memo((props) => {
   const onPaginationChange = (e, page) => {
     controlledSwiper.slideTo(page - 1);
   };
+
+  // render slider in memo to avoid
+  // unnecessary re-rendering (pagination update, etc)
   const slider = useMemo(() => {
     return (
       <Swiper

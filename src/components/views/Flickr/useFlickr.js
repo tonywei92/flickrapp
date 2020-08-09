@@ -11,6 +11,8 @@ const useFlickr = () => {
     setError(null);
   }, []);
 
+  // recreate refreshFeeds function only
+  // if tags is changed
   const refreshFeeds = useCallback(async () => {
     setFeedsLoading(true);
     try {
@@ -18,6 +20,10 @@ const useFlickr = () => {
       setFeeds(feedsRes);
       setFeedsLoading(false);
     } catch (err) {
+      // purpose of the set error state below
+      // is to throw an error inside the Flickr
+      // component. so the error handled inside
+      // component instead of here
       setError(err);
     }
   }, [tags]);

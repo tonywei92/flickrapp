@@ -1,6 +1,8 @@
 /* eslint-disable camelcase */
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
+
+// import material-ui components
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -15,6 +17,7 @@ const { REACT_APP_FLICKR_IMAGE_ERROR_FALLBACK } = process.env;
 
 const useStyles = makeStyles({
   media: {
+    // limit image height
     height: 'calc( 100vh - 400px )',
   },
   textEllipsis: {

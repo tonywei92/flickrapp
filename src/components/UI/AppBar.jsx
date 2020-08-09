@@ -69,6 +69,8 @@ const Navbar = (props) => {
   } = props;
   const classes = useStyles();
 
+  // search input box open state is decided
+  // by searchInputValue
   const [searchOpen, setSearchOpen] = useState(!!searchInputValue);
   const openSearch = (open) => {
     if (!open) {

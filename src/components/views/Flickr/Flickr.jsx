@@ -1,9 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ErrorBoundary from 'components/UI/ErrorBoundary';
-import ErrorIcon from '@material-ui/icons/Error';
+
+// import material-ui components
 import Button from '@material-ui/core/Button';
 import CenterContainer from 'components/UI/CenterContainer';
+
+// import material-ui icons
+import ErrorIcon from '@material-ui/icons/Error';
+
+import ErrorBoundary from 'components/UI/ErrorBoundary';
 import Carousel from './Carousel';
 
 const Flickr = (props) => {

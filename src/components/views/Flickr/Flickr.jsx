@@ -3,6 +3,7 @@ import ErrorBoundary from 'components/UI/ErrorBoundary';
 import ErrorIcon from '@material-ui/icons/Error';
 import Button from '@material-ui/core/Button';
 import CenterContainer from 'components/UI/CenterContainer';
+import FlickrCarousel from './FlickrCarousel';
 
 const Flickr = (props) => {
   const { flickr } = props;
@@ -25,9 +26,16 @@ const Flickr = (props) => {
         );
       }}
     >
-      <div></div>
+      <FlickrCarousel
+        feeds={flickr.feeds}
+        loading={flickr.feedsLoading}
+        error={flickr.error}
+      />
     </ErrorBoundary>
   );
 };
 
+Flickr.propTypes = {
+  flickr: propTypes,
+};
 export default Flickr;

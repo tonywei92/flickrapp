@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 // import material-ui components
 import IconButton from '@material-ui/core/IconButton';
@@ -12,6 +12,11 @@ import MuiAlert from '@material-ui/lab/Alert';
 // import internal UI components
 import AppBar from 'components/UI/AppBar';
 import SimpleDialog from 'components/UI/SimpleDialog';
+
+// import Flickr view and hooks
+import Flickr from 'components/views/Flickr';
+
+const { useFlickr } = Flickr;
 
 const Alert = (props) => {
   const { children, severity } = props;
@@ -28,10 +33,14 @@ Alert.propTypes = {
 };
 
 const Home = () => {
+  const flickr = useFlickr();
+  const { tags, setTags } = flickr;
   const [tagsInput, setTagsInput] = useState('');
   const [showAbout, setShowAbout] = useState(false);
   const [openVisitNotif, setOpenVisitNotif] = React.useState(true);
 
+  // initialize Flickr hooks
+  const { refreshFeeds } = flickr;
   const handleVisitNotifClose = (event, reason) => {
     if (reason === 'clickaway') {
       return;
@@ -43,7 +52,12 @@ const Home = () => {
     setShowAbout(open);
   };
 
-  const handleSearchSubmit = () => {};
+  const handleSearchSubmit = () => {
+    if (tags !== tagsInput) {
+      setTags(tagsInput);
+      flickr.fefreshFeeds(tagsInput);
+    }
+  };
 
   const handleMenuClick = () => {
     setShowAbout(true);
@@ -53,7 +67,14 @@ const Home = () => {
     setTagsInput(e.target.value);
   };
 
-  const handleRefreshFlickrFeeds = () => {};
+  // load feeds for the first time
+  useEffect(() => {
+    refreshFeeds();
+  }, [refreshFeeds]);
+
+  const handleRefreshFlickrFeeds = () => {
+    refreshFeeds(tags);
+  };
 
   // define Appbar buttons
   const appbarButtons = [
@@ -102,6 +123,7 @@ const Home = () => {
         handleClose={() => handleShowAboutDialog(false)}
         open={showAbout}
       />
+      <Flickr flickr={flickr} />
     </>
   );
 };

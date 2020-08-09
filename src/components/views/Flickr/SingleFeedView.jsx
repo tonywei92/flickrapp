@@ -107,7 +107,10 @@ const SingleFeedsView = forwardRef((props, ref) => {
 SingleFeedsView.propTypes = {
   feed: PropTypes.shape({
     title: PropTypes.string.isRequired,
-    author: PropTypes.string.isRequired,
+    author: PropTypes.shape({
+      name: PropTypes.string,
+      uri: PropTypes.string,
+    }).isRequired,
     categories: PropTypes.arrayOf(PropTypes.string).isRequired,
     direct_link: PropTypes.string.isRequired,
     flickr_link: PropTypes.string.isRequired,

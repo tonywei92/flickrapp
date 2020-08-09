@@ -55,7 +55,7 @@ const Home = () => {
   const handleSearchSubmit = () => {
     if (tags !== tagsInput) {
       setTags(tagsInput);
-      flickr.fefreshFeeds(tagsInput);
+      flickr.refreshFeeds(tagsInput);
     }
   };
 

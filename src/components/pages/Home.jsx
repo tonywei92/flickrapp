@@ -79,6 +79,7 @@ const Home = () => {
   // define Appbar buttons
   const appbarButtons = [
     <IconButton
+      id="refresh-feeds"
       key="btn-refresh"
       onClick={() => handleRefreshFlickrFeeds()}
       color="inherit"

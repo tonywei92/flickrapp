@@ -19,7 +19,7 @@ const Flickr = (props) => {
         const clearAllError = () => {
           flickr.clearError();
           clearError();
-          flickr.refreshFeeds();
+          flickr.refreshFeeds(flickr.tags);
         };
         return (
           <CenterContainer>
@@ -48,6 +48,7 @@ Flickr.propTypes = {
     feeds: PropTypes.arrayOf(PropTypes.object.isRequired),
     feedsLoading: PropTypes.bool,
     error: PropTypes.instanceOf(Error),
+    tags: PropTypes.string.isRequired,
   }).isRequired,
 };
 export default Flickr;

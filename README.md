@@ -1,6 +1,6 @@
 # FlickrApp
 
-View public Flickr Feeds faster with optimized web app based on [React](https://reactjs.org/)
+View public Flickr Feeds faster with optimized web app based on [React](https://reactjs.org/).
 
 <div align="center">
     <img src="/other/screenshot.png" width="400px"</img> 
@@ -26,7 +26,7 @@ $ yarn start
 
 ### Custom Hooks
 
-FlickrApp use self-made `useFlickr` that exposes states and functions:
+FlickrApp uses self-made `useFlickr` that exposes states and functions:
 
 | Name         | Type         | Description                                                                                                |
 | ------------ | ------------ | ---------------------------------------------------------------------------------------------------------- |
@@ -46,7 +46,7 @@ $ yarn build
 
 ### Testing
 
-There are two type of tests implemented, snapshot and integration.
+There are two type of tests implemented, snapshot and integration test.
 
 To run snapshot test:
 
@@ -62,7 +62,7 @@ To run integration test:
 $ yarn test:cypress
 ```
 
-or if with GUI:
+or with GUI:
 
 ```bash
 $ npx cypress open
@@ -77,4 +77,4 @@ You can read more about Cypress integration test [here](https://www.cypress.io/h
 
 ## Acknowledgement
 
-Thanks for [Cypress](https://www.cypress.io) for providing very useful integration testing without much hassle 💪
+Thanks to [Cypress](https://www.cypress.io) for providing powerful integration testing tool without much hassle 💪

@@ -1,6 +1,6 @@
 # FlickrApp
 
-View you Flickr Feeds faster with optimized web app based on [React](https://reactjs.org/)
+View public Flickr Feeds faster with optimized web app based on [React](https://reactjs.org/)
 
 <div align="center">
     <img src="/other/screenshot.png" width="400px"</img> 

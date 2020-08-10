@@ -34,13 +34,11 @@ Alert.propTypes = {
 
 const Home = () => {
   const flickr = useFlickr();
-  const { refreshFeeds, feedsLoading } = flickr;
-  const { tags, setTags } = flickr;
+  const { refreshFeeds, feedsLoading, tags, setTags } = flickr;
   const [tagsInput, setTagsInput] = useState('');
   const [showAbout, setShowAbout] = useState(false);
   const [openVisitNotif, setOpenVisitNotif] = React.useState(true);
 
-  // initialize Flickr hooks
   const handleVisitNotifClose = (event, reason) => {
     if (reason === 'clickaway') {
       return;

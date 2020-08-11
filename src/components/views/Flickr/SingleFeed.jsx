@@ -80,7 +80,7 @@ const SingleFeedsView = forwardRef((props, ref) => {
             <Link href={author.uri} target="blank">
               {author.name}
             </Link>
-            &nbsp;at
+            &nbsp;at&nbsp;
             {published_at}
           </Typography>
           <Typography
